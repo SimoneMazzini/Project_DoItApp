@@ -1,0 +1,361 @@
+
+/* Common CSS for flex box */
+/*
+  The complete app should contain following layout
+  appContainer
+        header
+        main-container
+            flex-main-container   <----We may app mobile view using media control tag by using flex-direction: row
+            Section-1 class=flex-container, height in percentage
+                    flex-row-container
+            section-2 class=flex-container, height in percentage
+                    flex-row-container
+            section-3 class=flex-container, height in percentage
+                    flex-row-container
+
+                :
+                :
+                flex-container (n-th) 
+        footer
+*/
+
+
+/*
+ 
+*/
+
+.appContainer{
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh; 
+    /* background-color: var(--dark-bg-color); */
+
+}
+/*
+ this class  will modify behaviour of main section
+*/
+.main-container{
+    display: flex;
+    width: 100%;
+    min-height: 600px;
+    height: 100%;
+
+}
+.flex-main-container{
+    display:flex;
+    flex-direction:column;
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    overflow: hidden;
+    
+  }
+
+.flex-container{
+    display: flex;
+    width: 100%;
+    /*justify-content:space-evenly;*/
+    overflow: hidden;
+    padding: .5rem;
+}
+.flex-card-container{
+    display: flex;
+    justify-content:space-between;
+    overflow: hidden;
+}
+ .flex-modal-container{
+    display: flex;
+    width: 90%;
+    height: 98%;
+    align-items: center;
+    justify-content: center;
+ }
+ .flex-vertical-scroll-enable{
+    overflow-y: auto;
+ }
+ .flex-modal-item-container{
+    display: flex;
+ }
+.flex-nowrap{
+  flex-wrap: nowrap;
+}
+.flex-wrap{
+    flex-wrap: wrap;
+  }
+.flex-overflow-hidden{
+    overflow: hidden;
+}
+.border-radius-20px{
+    border-radius: 20px;
+}
+.item-bg-color{
+    background-color: var(--dark-box-color);
+}
+.box-bg-color{
+    background-color: var(--dark-box-color);
+}
+.modal-box-bg-color{
+    background-color: var(--dark-card-add-module-modal-bg-color);
+}
+.flex-align-items{
+    align-items: center;
+}    
+/* .flex-body-bgcolor{
+    background-color: var(--dark-bg-color);
+} */
+.flex-card-item-container{
+    display:flex;
+    border-radius: 20px;
+    margin: 10px;
+    
+}
+
+.flex-margin-10px{
+    margin: 5px;
+}
+.flex-padding-10px{
+    padding: 10px;
+}
+.flex-container-test{
+    display: flex;
+    width: 100%;
+    justify-content:space-evenly;
+    overflow: hidden;
+     
+}
+.flex-body{
+    display: flex;
+     
+
+}
+.flex-row-container{
+    display: flex;
+
+}
+.blank-flex-card-container{
+    display: flex;
+    align-items: center;
+    
+}
+.arrow-btn-flex-card-container{
+    display: flex;
+    align-items: center;
+    
+    
+}
+
+.command-button-disabled {
+    background-color: gray;
+    color: white;
+    cursor: default;
+  }
+.command-button-enable {
+    background-color: var(--dark-btn-color);
+    color: var( --dark-btn-txt-color);
+    cursor: pointer;
+    padding: 0.4rem;
+    margin-top: 0.6rem;
+}
+.command-button-enable:hover {
+    background-color: var( --dark-btn-txt-color);
+    color: var(--dark-btn-color);
+  }
+
+.command-button{
+    background-color: var(--dark-btn-color);
+    color: var( --dark-btn-txt-color);
+    cursor: pointer;
+    padding: 0.4rem;
+    margin-top: 0.6rem;
+  }
+  
+  .command-button:hover {
+    background-color: var( --dark-btn-txt-color);
+    color: var(--dark-btn-color);
+  }
+.flex-container-padding{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 1px;
+    padding-right: 1px;
+
+    height: 85%;
+    max-height: 85vh;
+}
+.row-flex-direction{
+    flex-direction: row;
+} 
+.col-flex-direction{
+    flex-direction:column;
+} 
+.even-justify-content{
+    justify-content: space-evenly;
+}
+.around-justify-content{
+    justify-content:space-around;
+}
+.between-justify-content{
+    justify-content:space-between;
+}
+
+
+
+.flex-width-90per{
+    width:90%;
+}
+
+.flex-width-50per{
+    width: 50%;
+}
+.flex-width-25per{
+    width: 25%;
+}
+.flex-width-15per{
+    width: 15%;
+}
+.flex-width-10per{
+    width: 10%;
+}
+.flex-width-20per{
+    width: 20%;
+}
+.flex-width-25per{
+    width: 25%;
+}
+.flex-width-30per{
+    width: 30%;
+}
+.flex-width-70per{
+    width: 70%;
+}
+.flex-width-100per{
+    width: 100%;
+}
+.flex-width-95per{
+    width: 95%;
+}
+.flex-min-width-50px{
+    min-width: 50px;
+}
+
+.flex-min-width-10px{
+    min-width: 10px;
+}
+.flex-min-width-20px{
+    min-width: 20px;
+}
+.flex-min-width-25px{
+    min-width: 25px;
+}
+.flex-min-width-30px{
+    min-width: 30px;
+}
+.flex-min-width-70px{
+    min-width: 70px;
+}
+
+.flex-min-width-75px{
+    min-width: 75px;
+}
+.flex-min-width-100px{
+    min-width: 100px;
+}
+.flex-min-width-200px{
+    min-width: 200px;
+}
+.flex-min-width-300px{
+    min-width: 300px;
+}
+.flex-height-25per{
+   height: 25%;
+}
+.flex-height-80per{
+    height: 80%;
+ }
+ .flex-height-20per{
+    height: 20%;
+ }
+ .flex-height-90per{
+    height: 90%;
+ }
+ .flex-height-10per{
+    height: 10%;
+ }
+.flex-height-30per{
+    height: 30%;
+}
+.flex-height-70per{
+   height: 70%;
+}
+.flex-height-40per{
+    height: 40%;
+}
+.flex-height-12per{
+    height: 12%;
+}
+.flex-height-5per{
+    height: 5%;
+}
+.flex-height-50per{
+    height: 50%;
+}
+.flex-height-50px{
+    height: 50px;
+}
+.flex-min-height-5per{
+    min-height: 8px;
+}
+
+
+.flex-min-height-150px{
+    min-height: 150px;
+}
+.flex-min-height-400px{
+    min-height: 400px;
+}
+.font-size-2rem{
+    font-size: 2rem
+}
+.font-size-1-5rem{
+    font-size: 1.5rem;
+}
+.cmd-min-width-150px{
+    min-width: 150px;
+}
+.cmd-width-150px{
+    width: 150px;
+}
+.cmd-min-height-70px{
+    min-height: 70px;
+}
+.cmd-height-70px{
+    height: 70px;
+}
+.test-bg-color-1{
+    background-color: azure;
+}
+.test-bg-color-2{
+    background-color:cornflowerblue;
+}
+.test-bg-color-3{
+    background-color:forestgreen;
+}
+.test-bg-color-4{
+    background-color:darkgray;
+}
+
+
+
+
+  /** 
+Responsive settings:
+Navigation view for mobile display
+*/
+@media (max-width:599px){
+    .flex-main-container{
+        flex-direction: column;
+    }
+
+}

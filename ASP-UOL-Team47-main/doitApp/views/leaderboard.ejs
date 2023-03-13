@@ -1,0 +1,55 @@
+<%- include('./partials/headMeta.ejs')%>
+
+<body class="flex-body" class="theme">
+ 
+    <!--main navigation-->
+    <%- include('./partials/header.ejs')%>
+    <main class="main-container block-display margin-top-10">
+     
+      
+      <h1 class="Leaderboard-title titleText" >Leaderboard</h1>
+
+      <!--  02 Inside Container [ Points (Integer) |  Profile ( Google Icon ) | Slack ( Bolean ) |  Courses ( Array )  ]  -------->
+
+      <div class="leaderboard_grid_container">
+        <% for (var i = 0; i < data.length; i++) { %>
+        <div class="leaderboard_row_grid">
+          <div class="leaderboard_points gird-box1"><%= data[i].points %></div>
+          <div class="leaderboard_userProfile gird-box1">
+            <span class="material-icons person gird-box1">person</span>
+             
+          </div>
+          <% if (data[i].slack) { %>
+          <div class="profile_pic gird-box1">
+            <img src="/images/slack-icon.svg" alt="Slack Icon" />
+          </div>
+          <% } else { %>
+          <div class="emptygrid gird-box1">
+            <p><%= data[i].userName %></p>
+          </div>
+          <% } %>
+          <div class="leaderboard_courses gird-box1">
+            <% var courses = data[i].courses; for (var j = 0; j <
+            courses.length; j++) { if (j !== 0) { %> , <% } %> <%= courses[j] %>
+            <% } %>
+          </div>
+          <div class="progress-bar gird-box1">
+            <div class="progress" style="width: <%= data[i].totalPercentage %>%"></div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </main>
+    <%- include('./partials/footer.ejs')%>
+ 
+
+  <script src="/scripts/navigation.js"></script>
+  <!--Set active on navigation bar , highlited GREEN-->
+
+  <script>
+    window.onload = () => {
+      setActive("leaderboard-nav");
+    };
+  </script>
+</body>
+</html>

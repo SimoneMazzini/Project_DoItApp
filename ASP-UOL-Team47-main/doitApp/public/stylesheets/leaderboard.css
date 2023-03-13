@@ -1,0 +1,50 @@
+.Leaderboard-title {
+  margin-top: 1%;
+  margin-left: 20%;
+  margin-bottom: 1%;
+  padding: 4px;
+  background-color: var(--button-color);
+  width: 150px;
+  text-align: center;
+  vertical-align: center;
+}
+
+.block-display {
+  display: block;
+}
+
+.margin-top-10 {
+  margin-top: 1%;
+}
+
+.leaderboard_row_grid {
+  display: grid;
+  background-color: var(--container-color);
+  color: var(--font-color);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-items: center;
+  align-items: center;
+  padding: 2%;
+  /* overflow-y: auto; */
+  overflow: hidden;
+}
+
+.leaderboard_grid_container {
+  margin-left: 20%;
+  width: 60%;
+  border-radius: 0.95em;
+  overflow: hidden;
+
+}
+
+.leaderboard_points {
+  font-size: 2em;
+}
+
+.person {
+  font-size: 60px;
+}
+
+.leaderboard_courses {
+  font-size: 2em;
+}

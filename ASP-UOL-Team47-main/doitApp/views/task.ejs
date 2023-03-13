@@ -1,0 +1,430 @@
+<%- include('./partials/headMeta.ejs')%>
+  
+  <body class="flex-body">
+      <div class="appContainer">
+        <!--main navigation-->
+        <%- include('./partials/header.ejs')%>
+        
+        <main class="main-container-task"> <!--Responsive OK-->
+          <div class="flex-main-container-task"> <!--Responsive NOK-->
+              <!--top row with progress, points and robots-->
+              <div class="flex-container-dummy-main-container flex-container-dummy-main-padding">
+                  <div class="flex-container-side-space"> <!--LEFT DUMMY GAP DIV-->
+                         TEST1
+                  </div>
+                  <!--WORK AREA FOR TASK MANAGEMENT-->
+                  <!--<div class="flex-container col-flex-direction flex-width-70per">  -->  <!--CYAN LINE-->
+                  <div class="flex-container-task-management">
+                         <!--###########################################################################
+                             UPPER WORKSPACE AREA
+                             Upper div area contains 
+                             MODULE CODE
+                             Percentage BAR
+                             Percentage number
+                             Delete Module Button
+                             Archive Module Button
+                            ############################################################################
+                          -->
+                         <div class="flex-container-task-upper-box"> <!--This div must be act responsive-->
+                               <div class="flex-container-task-upper-left-box"> <!--This div must be act responsive-->
+                                   <!--
+                                    ==============================
+                                    MODULE  DISPLAY AREA
+                                    ===============================
+                                   -->
+                                   <div class="module-name-item-box"> <!--Module name Box item-->
+                                      <div id="moduleShortCodeID" class="module-name-item-box-txt" data-item="<%= moduleShortCode %>">
+                                        <%= moduleShortCode %>
+                                      </div>
+                                      
+                                   </div>
+                                   <!--
+                                    ==============================
+                                    MODULE , PERCENTAGE WORKSPACE
+                                    ===============================
+                                   -->
+                                   <div class="module-percentage-item-container"> <!--Module Percentage Container-->
+                                        <div class="module-percentage-horizonral-bar"> <!--Percentage in horizontal Bar-->
+                                          <div class="progress-bar">
+                                            <% if (modulePercentage.length>0 ) { %> 
+                                                   <div id="percentageGraph" class="progress" style="width: <%= modulePercentage[0].percentage %>%;"></div>
+                                            <% } else { %>
+                                                   <div id="percentageGraph" class="progress" style="width: 0%;"></div>
+                                            <% } %>
+                                          </div>
+                                        </div>
+                                        <div  id="percentageValue"  class="module-percentage-text"> <!--Percentage in TEXT-->
+                                            <% if (modulePercentage.length>0 ) { %> 
+                                                <%= modulePercentage[0].percentage %>%
+                                            <% } else { %>
+                                                0%
+                                            <% } %>
+                                        </div>
+                                   </div>
+                               </div>
+
+                               <div class="flex-container-task-upper-right-box"> <!--Delete Module/ Archive Container-->
+                                    <!--
+                                    ==============================
+                                    DELETE , ARCHIVE AREA
+                                    ===============================
+                                   -->
+                                   <div class="delete-module-item-box">
+                                    <button id="add-delete-module" class="task-btn-css"  data-item="<%= moduleShortCode %>">  
+                                       
+                                          <div>DELETE MODULE</div>
+                                          
+                                      </button>
+                                   </div>
+                                   <div class="archive-module-item-box">
+                                    <button id="add-archive-module" class="task-btn-css">  
+                                       
+                                      <div>ARCHIVE MODULE</div>
+                                      
+                                  </button>
+                                   </div>
+                                    
+                               </div>
+                         </div> 
+                         <!--
+                           #######################################################################
+                           LOWER WORKSPACE AREA
+                           #####################################################################
+                          -->
+                         <div class="flex-container-task-lower-box "><!--RESPONSIVE CONTAINER--> <!--ORANGE LINE-->
+                             <!--
+                              =====================================================================
+                              TODO WORKSPACE
+                              =====================================================================
+                             -->
+                             <div class="flex-container-task-lower-left-box"> <!--PINK LINE-->
+                                 <div class="flex-todo-addtask-filter-container">
+                                     <div class="flex-todo-item">
+                                         TODO
+                                     </div>
+                                     <div class="flex-addtask-btn-item">
+                                            <button id="add-task-btn" class="task-btn-css">  
+                                              <!--<span class="material-icons"> add_circle </span>       -->               <div>   
+                                                  <img style="width:25px;height:25px;" src="images/plus-circle.svg">
+                                                  </div>
+                                                  <div>ADD TASK</div>
+                                                  
+                                              </button>
+                                     </div>
+                                     <div class="flex-filter-btn-item">
+                                              <button id="add-module-btn" class="task-btn-css">  
+                                                <!--<span class="material-icons"> add_circle </span>       -->               <div>   
+                                                    <img style="width:25px;height:25px;" src="images/filter.png">
+                                                    </div>
+                                                    <div>FILTER</div>
+                                                    
+                                                </button>
+                                     </div>
+                                     
+                                 </div>
+                                 <div id="WeekContainerID" class="flex-task-container flex-vertical-scroll-enable "> <!--TASK LIST BOX CONTAINER MUST Have scroll option-->
+                                      <!--
+                                        *******************************************************************************************
+                                        BELOW SECTION MUST BE FILLED  BY EJS TEMPLATE OR NEED TO ADD THROUGH JAVA SCRIPT USING DOM
+                                        ******************************************************************************************
+                                      -->
+                                      <% for (var i = 0; i < weeks.length; i++) { %>
+                                      <div id="<%= weeks[i].week %>" class="flex-task-list-container  task-bg-color"> <!--RED BOX-->
+                                             <!-- PER SUBTASK-->
+                                                
+                                                            <div class="flex-week-container"> <!--WEEK INFO CONTAINER-->
+                                                                <p><%= weeks[i].week %></p>
+                                                            </div>
+                                                            <% for (var j = 0; j < data.length; j++) { %>  
+                                                                <% if (weeks[i].week===data[j].description && data[j].taskDetails_Status < 100 ) { %>  
+                                                                    <div  class="flex-list-items-container"> <!--TASK OPERATION CONTAINER LIST BOX-->
+                                                                        <div class="flex-each-list-items-container"> <!--Container for each row from list-->
+                                                                                <div class="flex-list-item-icon" title="Click here to delete this task"> <!--Column Item-1 delete icon-->
+                                                                                    <a herf="#">
+                                                                                        <img class="flex-list-item-delete-img" src="../images/delete.png" alt="delete icon" data-item="<%= data[j].taskDetailID %>">
+                                                                                    </a>
+                                                                                </div>
+                                                                                <div class="flex-list-item-icon" title="Click here to edit this task"><!--Column Item-2 edit icon-->
+                                                                                    <a herf="#">
+                                                                                        <img class="flex-list-item-edit-img" src="../images/edit.png" alt="Edit Icon" data-item="<%= data[j].taskDetailID %>">
+                                                                                    </a>
+                                                                                </div>
+                                                                                <div class="flex-list-item-icon"><!--Column Item 3 Priority icon-->
+                                                                                    
+                                                                                        <img class="flex-list-item-priority-img" src="../images/<%= data[j].priorityFlag %>" alt="priority flag" data-item="<%= data[j].taskDetailID %>">
+                                                                                    
+                                                                                </div>
+                                                                                <div class="flex-list-item-icon"><!--Column Item 4 Place holder-->
+                                                                                    <div class="flex-list-item-placeholder" data-item="<%= data[j].taskDetailID %>" title="Click here to completion of this task"></div>
+                                                                                </div>
+                                                                                <div class="flex-list-item-text"><!--Column Item 5 Task description, duedate etc-->
+                                                                                    <div class="flex-list-item-taskDetails"> <!--Task descriptions-->
+                                                                                        <p id="task-details-descr-<%= data[j].taskDetailID %>" class="flex-list-item-task-details-descr"><%= data[j].taskName %> (<%= data[j].taskDesc %>)</p>
+                                                                                    </div>
+                                                                                    <div class="flex-list-item-taskDetails"> <!--task Due date-->
+                                                                                        <p class="flex-list-item-task-due-date" data-item="<%= data[j].taskDetailID %>"> Due date:<%= data[j].subTaskDueDate %></p>
+                                                                                    </div>
+                                                                                </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                <% } %>    
+                                                            <% } %>
+
+                                      
+                                                                                                                     
+                                          </div>
+                                      <% } %>
+                                      <!--END PER SUBTASK SECTION-->
+                                      <!--
+                                        ***************************************************************************************
+                                        END OF EJS/ DOM TEMPLATE AREA
+                                        ***************************************************************************************
+                                      -->
+                                 </div>
+                             </div>
+                             <!--
+                              ================================================================
+                              TASK COMPLETED, OVERDUE WORKSPACE
+                              ================================================================
+                              -->
+                             <div class="flex-container-task-lower-right-box">
+                                <!--
+                                  #################################################################
+                                   COMPLETED TASK 
+                                  ################################################################# 
+                                -->
+                                <div class="flex-compelted-list-container"> <!--COMPLETED LIST CONTAINER -->
+                                  <div class="flex-completed-horizontal-bar">
+                                        <div class="flex-completed-horizontal-txt"> COMPLETED</div>
+                                  </div>  
+                                  <div class="flex-task-complete-due-container flex-vertical-scroll-enable task-bg-color"> 
+                                    <!--LIST OF COMPLETED MODULE MUST BE FILLED BY EJS TEMPLATE OR BROWSER SIDE AJAX CALL -->
+                                      <div  class="flex-list-items-comp-due-container "> <!--COMPLETED CONTAINER LIST BOX-->
+                                        <!--EACH COMPLETED ROW ITEM-->
+                                        <% for (var j = 0; j < data.length; j++) { %>
+                                          <% if ( data[j].taskDetails_Status >=100) { %> 
+                                              <div class="flex-each-comp-due-list-items-container "> <!--Container for each row from list-->
+                                                      <div class="flex-list-item-icon"><!--Column Item 4 Place holder-->
+                                                        <div class="flex-list-item-completed-placeholder">
+                                                          <div class="flex-list-item-icon"><!--Tick mark icon-->
+                                                            <img class="flex-list-item-priority-img" src="../images/tick.png" alt="priority flag" data-item="taskDetailID-Flag">
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="flex-list-item-text"><!--Column Item 5 Task description, duedate etc-->
+                                                        <div class="flex-list-item-comp-due"> <!--Task descriptions-->
+                                                                <p class="flex-list-item-task-details-descr"><%= data[j].taskName %> (<%= data[j].taskDesc %>)</p>
+                                                        </div>
+                                                        
+                                                    </div>
+                                              </div>
+                                           <% } %> 
+                                        <!--END EACH COMPLETED ROW ITEM-->
+                                        <% } %>
+                                    </div>
+                                    <!--END OF LIST -COMPLETED-MODULE-->
+                                  </div>
+                                </div>
+                                <!--#####################
+                                    END OF COMPLETED TASK 
+                                    #####################-->
+
+                                <div class="flex-overdue-list-container"> <!--OVERDUE LIST CONTAINER-->
+                                    <div class="flex-overdue-horizontal-bar">
+                                          <div class="flex-overdue-horizontal-txt">
+                                                OVERDUE
+                                          </div>
+                                    </div>  
+                                    <div id="dueDateParentContainerID"class="flex-task-complete-due-container flex-vertical-scroll-enable task-bg-color"> 
+                                      <!--LIST OF COMPLETED MODULE MUST BE FILLED BY EJS TEMPLATE OR BROWSER SIDE AJAX CALL -->
+                                        <div  id="dueDateContainerID" class="flex-list-items-comp-due-container "> <!--COMPLETED CONTAINER LIST BOX-->
+                                          <!--EACH COMPLETED ROW ITEM-->
+                                              <div class="flex-each-comp-due-list-items-container"> <!--Container for each row from list-->
+
+                                             </div>
+                                          
+                                          <!--END EACH COMPLETED ROW ITEM-->
+                                          
+                                      </div>
+                                      <!--END OF LIST -COMPLETED-MODULE-->
+                                    </div>
+                                </div>
+                             </div>
+                         </div>
+                         
+                  </div>
+                  <div   class="flex-container-side-space"><!--RIGHT DUMMY GAP DIV-->
+                         TEST-3
+                  </div>
+
+              </div>
+          </div>
+
+         <!--NEW TAS ADD MODAl DIALOG BOX-->
+          <div id="add-task-dialogue-box" class="add-task-dialogue-box-container modal-box-bg-color"> <!--RED-->
+            <div id="add-task-dialogue-box-items" class="flex-task-modal-container col-flex-direction add-module-dialogue-box-items  "> <!--Orange-->
+              <div class="flex-modal-item-container container-allmodule-list flex-width-100per "> <!-- GREEN must have horizontal scroll bar-->              <!--ADD TASK AREA-->
+                     <form id="addTaskFormID" class="taskForm" data-item="<%= moduleShortCode %>">
+                          <label for="taskWeek" class="taskLabel">Week:</label>
+                          <select id="taskWeek" name="week" class="taskSelect">
+                            <option value="Week-1">Week-1</option>
+                            <option value="Week-2">Week-2</option>
+                            <option value="Week-3">Week-3</option>
+                            <option value="Week-4">Week-4</option>
+                            <option value="Week-5">Week-5</option>
+                            <option value="Week-6">Week-6</option>
+                            <option value="Week-7">Week-7</option>
+                            <option value="Week-8">Week-8</option>
+                            <option value="Week-9">Week-9</option>
+                            <option value="Week-10">Week-10</option>
+                            <option value="Week-11">Week-11</option>
+                            <option value="Week-12">Week-12</option>
+                            <option value="Week-13">Week-13</option>
+                            <option value="Week-14">Week-14</option>
+                            <option value="Week-15">Week-15</option>
+                            <option value="Week-16">Week-16</option>
+                            <option value="Week-17">Week-17</option>
+                            <option value="Week-18">Week-18</option>
+                            <option value="Week-19">Week-19</option>
+                            <option value="Week-20">Week-20</option>
+                            <option value="Week-21">Week-21</option>
+                            <option value="Week-22">Week-22</option>
+                            <option value="Week-23">Week-23</option>
+                            <option value="Week-24">Week-24</option>
+                            <option value="Week-25">Week-25</option>
+                                                                                                                                            
+                          </select>
+                          <br>
+                        
+                          <label for="taskName" class="taskLabel">Task Name:</label>
+                          <input type="text" id="taskName" name="taskName" class="taskInput">
+                          <br>
+                        
+                          <label for="taskDescription" class="taskLabel">Description:</label>
+                          <textarea id="taskDescription" name="description" class="taskTextarea"></textarea>
+                          <br>
+                        
+                          <label for="taskDueDate" class="taskLabel">Due Date:</label>
+                          <input type="date" id="taskDueDate" name="dueDate" class="taskInput">
+                          <br>
+                        
+                          <label for="taskPriority" class="taskLabel">Priority:</label>
+                          <select id="taskPriority" name="priority" class="taskSelect">
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                          </select>
+                          <br>
+
+                          <div class="flex-modal-item-container col-flex-direction flex-width-100per flex-height-5per">
+                            <p id="successMsgTask" class="add-module-status-success "></p>
+                            <p id="errorMsgTask"  class="add-module-status-err "></p>
+                          </div>
+                          <br>
+                          <br>
+                          <br>
+                          <div  class="button-row">
+                            <button id="cancelAddTaskBtnID" type="button" class="taskButton">Cancel</button>
+                            <button id="taskButtonID" type="button" class="taskButton" disabled>Add</button>
+                          </div>
+                          
+                      
+                    </form>
+              <!--END OF ADD TASK-->
+              </div>
+
+
+            </div>
+          </div>
+         <!--NEW TAS ADD MODAl DIALOG BOX-->
+          <div id="edit-task-dialogue-box" class="add-task-dialogue-box-container modal-box-bg-color"> <!--RED-->
+            <div id="edit-task-dialogue-box-items" class="flex-task-modal-container col-flex-direction add-module-dialogue-box-items  "> <!--Orange-->
+              <div class="flex-modal-item-container container-allmodule-list flex-width-100per "> <!-- GREEN must have horizontal scroll bar-->              <!--ADD TASK AREA-->
+                <form id="editTaskFormID" class="taskForm" data-item="taskDetailsID">
+                        <label for="editTaskWeek" class="taskLabel">Week:</label>
+                        <select id="editTaskWeek" name="week" class="taskSelect" data-item="subTaskID">
+                          <option value="Week-1">Week-1</option>
+                          <option value="Week-2">Week-2</option>
+                          <option value="Week-3">Week-3</option>
+                          <option value="Week-4">Week-4</option>
+                          <option value="Week-5">Week-5</option>
+                          <option value="Week-6">Week-6</option>
+                          <option value="Week-7">Week-7</option>
+                          <option value="Week-8">Week-8</option>
+                          <option value="Week-9">Week-9</option>
+                          <option value="Week-10">Week-10</option>
+                          <option value="Week-11">Week-11</option>
+                          <option value="Week-12">Week-12</option>
+                          <option value="Week-13">Week-13</option>
+                          <option value="Week-14">Week-14</option>
+                          <option value="Week-15">Week-15</option>
+                          <option value="Week-16">Week-16</option>
+                          <option value="Week-17">Week-17</option>
+                          <option value="Week-18">Week-18</option>
+                          <option value="Week-19">Week-19</option>
+                          <option value="Week-20">Week-20</option>
+                          <option value="Week-21">Week-21</option>
+                          <option value="Week-22">Week-22</option>
+                          <option value="Week-23">Week-23</option>
+                          <option value="Week-24">Week-24</option>
+                          <option value="Week-25">Week-25</option>
+                                                                                                                                          
+                        </select>
+                        <br>
+                
+                        <label for="editTaskName" class="taskLabel">Task Name:</label>
+                        <input type="text" id="editTaskName" name="editTaskName" class="taskInput" data-item="taskID">
+                        <br>
+                      
+                        <label for="editTaskDescription" class="taskLabel">Description:</label>
+                        <textarea id="editTaskDescription" name="description" class="taskTextarea" data-item="moduleID"></textarea>
+                        <br>
+                
+                        <label for="editTaskDueDate" class="taskLabel">Due Date:</label>
+                        <input type="date" id="editTaskDueDate" name="dueDate" class="taskInput">
+                        <br>
+                
+                        <label for="editTaskPriority" class="taskLabel">Priority:</label>
+                        <select id="editTaskPriority" name="priority" class="taskSelect">
+                          <option value="High">High</option>
+                          <option value="Medium">Medium</option>
+                          <option value="Low">Low</option>
+                        </select>
+                        <br>
+
+                        <div class="flex-modal-item-container col-flex-direction flex-width-100per flex-height-5per">
+                          <p id="editSuccessMsgTask" class="add-module-status-success "></p>
+                          <p id="editErrorMsgTask"  class="add-module-status-err "></p>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div  class="button-row">
+                          <button id="cancelEditTaskBtnID" type="button" class="editTaskButton">Cancel</button>
+                          <button id="editTaskButtonID" type="button" class="editTaskButton">Update</button>
+                        </div>
+                          
+                      
+                    </form>
+              <!--END OF ADD TASK-->
+              </div>
+            </div>
+
+            
+          </div>          
+        </main>
+        
+        <%- include('./partials/footer.ejs')%>
+      </div>
+    <script  src="/scripts/navigation.js"></script>
+    <script  src="/scripts/dashboard.js"></script>
+    <script  src="/scripts/task.js"></script>
+    <!--Set active on navigation bar , highlited GREEN-->
+    <script>
+         window.onload = () =>{
+         setActive("home-nav");
+    };
+    </script>
+  </body>
+  </html>

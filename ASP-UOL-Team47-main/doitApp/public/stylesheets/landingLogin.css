@@ -1,0 +1,208 @@
+/* main background color of landing and login pages*/
+.landing {
+  background: linear-gradient(180deg, #D8D9F1 0%, #B9BAD3 4%, 
+            #9292AC 11%, #6E6E89 18%, #51506C 26%, #393855 35%, #262543 44%, 
+            #191836 56%, #12112F 70%, #100F2D 100%) 0% 0%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+/*------------------- mobile first styling - stack pancake 1 column grid----------------------- */
+#landingMain {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 2rem;
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.landingHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  padding-top: 1rem;
+  align-items: center;
+}
+
+/* logo */
+.landingHeader img {
+  width: 10%;
+  min-width: 80px;
+  max-width: 100px;
+  margin-left: 1.5rem;
+}
+
+/* login link */
+.landingHeader a {
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--dark-yellow);
+  background-color: var(--button-color);
+  margin-right: 1.5rem;
+  border-radius: 0.75rem;
+  padding: 0.3rem 1rem;  
+}
+
+.landingHeader a:hover {
+  color: var(--green-color);
+}
+
+#intro h1 {
+  color: var(--title-color);
+  font-weight: 600;
+  font-size: 2rem;
+  margin: 0;
+}
+
+#intro article {
+  border-top: 2px solid var(--green-color);
+  border-left: 2px solid var(--green-color);
+  padding: 0.8rem;
+  margin: 0;
+}
+
+#intro a {
+  color: var(--dark-yellow);
+  vertical-align: middle;
+  font-size: 1.2rem;
+}
+
+i.arrow {
+  color: var(--green-color);
+  font-size: 3rem;
+  margin-left: -1rem;
+  vertical-align: middle;
+}
+
+.asterix {
+  color: var(--dark-yellow);
+}
+
+#signUpSection {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.formTitle {
+  width: 80%;
+  color: var(--font-color);
+  text-align: center;
+  font-size: 1.2em;
+  background-color: var(--form-background);
+  padding: 1.2em;
+  border-radius: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0 auto 1rem auto;
+}
+
+#signUpForm {
+  width: 100%; 
+}
+
+/* Login page styling*/
+#loginMain {
+  min-height: 100vh;
+  width: 90vw;
+  margin: auto;
+}
+
+#loginMain section {
+  margin: 0 auto;
+}
+
+#loginForm {
+  width: 100%;
+}
+
+#loginForm fieldset {
+  padding: 4rem;
+  height: 200px;
+}
+
+fieldset {
+  border: none;
+  padding: 2rem; 
+  margin: auto;
+  background-color: var(--container-color);
+}
+
+/* sign up form button */
+.formButton {
+  width: 100%;
+  font-size: 1rem;
+  background-color: var(--green-color);
+  color: var(--font-color); 
+  padding: 0.4rem;
+  margin-top: 0.6rem;
+}
+
+.formButton:hover {
+  background-color: var(--button-color);
+  color: var(--green-color);
+}
+
+input {
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 0.75rem;
+  background-color: var(--font-color);
+  color: var(--container-color);
+  border: none;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+}
+.signUpErr{
+
+  color: var(--dark-box-err-color);
+}
+.loginErr{
+  color: var(--dark-box-err-color);
+}
+/* ----------------------------------------------------------------------------------------------------- */
+
+
+/*---------------- Styles and layouts on larger screens (Tablet/Laptop/desktop layout)----------------- */
+@media only screen and (min-width: 600px) {
+  #landingMain {
+    display: grid;
+    grid-template-columns: 1fr 500px;
+    width: 90vw;
+    min-height: 90vh;
+    margin: 0 auto;
+    background-image:  url(../images/landing-img.webp);
+    background-position: left 25% center;
+    background-repeat: no-repeat;
+    background-size: 45%;
+  }
+
+  /* Add login background image */
+  #loginMain {
+    width: 100%;
+    background-image:  url(../images/login-img.webp);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+
+  #intro {
+    width: 55%;
+    margin: 0;
+    max-width: 600px;
+    min-width: 300px;
+  }
+
+  #signUpSection {
+    width: 80%;
+    margin: 0 auto;  
+  }
+
+  #loginMain section {
+    width: 400px;
+    margin: 0 auto;
+  }
+}
+
+
+

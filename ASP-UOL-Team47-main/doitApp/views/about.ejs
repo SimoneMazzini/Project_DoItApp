@@ -1,0 +1,102 @@
+<!--This page displays the following:
+    - About section
+    - Mission statement
+    - FAQ about the application
+    - A user guide in video and pdf formats that users can download.
+-->
+
+<%- include('./partials/headMeta.ejs')%>
+<body class="theme ">
+  <!--main navigation-->
+  <%- include('./partials/header.ejs')%>
+
+  <main id="about-page">
+    <!--About and Mission section-->
+     <!--About-->
+    <section id="about">
+      <h2 class="titleText">About</h2>
+      <p>
+        This application is a teamwork coursework for Agile Software Projects module.
+        We are a group of five students in the October 2022 - March 2023 session.
+      </p>
+    </section>
+
+    <!--Mission-->
+    <section id="mission">
+      <h2 class="titleText">Mission</h2>
+      <p>
+        Our mission is to build a platform that will help our fellow students engage with their studies and connect with classmates. 
+        We hope to create a motivating environment where everyone thrives in their learning goals.
+      </p>
+    </section>
+
+    <!--FAQ section-->
+    <aside id="faq">
+      <h1>FAQ</h1>
+      <dl>
+        <dt>How much does it cost to sign up for an account?</dt>
+        <dd> <p>This application is completely free, forever!</p></dd>
+      
+        <dt>How do I connect with other students?</dt>
+        <dd> 
+          <p>You can connect with students who have provided their Slack ID when viewing the
+          Leaderboard. This is a great way to connect with others to form study groups or 
+          an accountability partner.</p> 
+        </dd>
+      
+        <dt>Is my account private?</dt>
+        <dd><p>Yes, only you can see your task lists and details of your account.</p></dd>
+
+        <dt>What data do you collect?</dt>
+          <dd> 
+            <p>We only ask for a username and password.</p>
+            <p>You may choose to provide an email
+              address for password recovery.</p>
+            <p>You may upload a photo and add your
+              Slack ID if you wish to connect with other
+              students</p>
+            <p>Your information will not be used for any
+              other purposes.</p>
+          </dd>
+      </dl>   
+      </aside>
+      
+      <!--User guide section-->
+      <section id="guide">
+        <!--Provide a download on mobile, guide video on larger screens only-->
+        <article>
+          <h3 class="titleText">User Guide</h3>
+          <p>Click to download the user guide in pdf format.</p>
+          <a href="#" target="_blank"> User guide</a>
+        </article> 
+      </section>
+      
+      <!--contact form section-->
+      <div id="contact-section">
+        <div id="cat"><p>Questions or comments? Let’s get in touch...</p> </div>
+        
+        <!--form should not send any data to the database(out of scope functionality)-->
+        <form action="" method="" id="contact">
+          <h3 class="titleText">Contact</h3>
+          <fieldset>
+            <label for="name">Name</label><br>
+            <input type="text" name="name"><br>
+            <label for="comments">Comments</label><br>
+            <textarea name="comments" id="" cols="60" rows="5" wrap="on"></textarea>
+          </fieldset>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </main>
+    <%- include('./partials/footer.ejs')%>  
+
+    <script  src="/scripts/navigation.js"></script>
+    <!--Set active on navigation bar , highlighted GREEN-->
+    <script>
+         window.onload = () =>{
+         setActive("about-nav");
+         
+    };
+    </script>
+  </body>
+</html>

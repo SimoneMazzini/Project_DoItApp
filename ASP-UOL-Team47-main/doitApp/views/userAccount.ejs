@@ -1,0 +1,80 @@
+<%- include('./partials/headMeta.ejs')%>
+  
+  <body class="theme ">
+    <!--main navigation-->
+    <%- include('./partials/header.ejs')%>
+
+    <main id="user-account">
+      <!--User name and profile pic or icon-->
+      <section id="profile">
+        <h1 class="titleText">Your Account</h1>
+        <div id="profile-img" class="nav-bar-button-profile">
+          <span class="material-icons"> person </span> 
+        </div>
+        <button id="delete-account">Delete Account</button>    
+      </section>
+        
+      <!--Account details section-->
+      <section id="account-details">
+        <!--User's email-->
+        <div class="account-info">
+          <p class="account-info-title">Email</p>
+          <p class="account-info-details">email@domain.com</p>
+        </div>
+        
+        <!--User's username-->
+        <div class="account-info">
+          <p class="account-info-title">Username</p>
+          <p class="account-info-details">myusername</p>
+        </div>
+        
+        <!--User's password-->
+        <div class="account-info">
+          <p class="account-info-title">Password</p>
+          <p class="account-info-details">*********</p>
+        </div>
+        
+        <!--User's Slack ID if available-->
+        <div class="account-info">
+          <p class="account-info-title">Slack ID</p>
+          <p class="account-info-details">mySlackID</p>
+        </div>
+        
+        <!--User's current modules-->
+        <div class="account-info">
+          <p class="account-info-title">Current Modules</p>
+          <!--populate current module list here...-->
+          <div class="user-modules">
+            <ul>
+              <li>ITP2</li>
+              <li>OOP</li>
+              <li>ADS1</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!--User's archived modules-->
+        <div class="account-info">
+          <p class="account-info-title">Archived</p>
+          <!--populate archived module list here...-->
+          <div id="archived-modules" class="user-modules">
+            <ul>
+              <li>ITP1</li>
+              <li>WD</li>
+              <li>DM</li>
+            </ul>
+          </div>
+          
+        </div>
+      </section>
+    </main>
+    <%- include('./partials/footer.ejs')%>
+    <script  src="/scripts/navigation.js"></script>
+    <!--Set active on navigation bar , highlighted GREEN-->
+    <script>
+         window.onload = () =>{
+         setActive("account-nav");
+    };
+    </script>
+  </body>
+</html>

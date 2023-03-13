@@ -1,0 +1,148 @@
+/* Main app styles and css variables */
+*{
+  padding: 0;
+  margin:0;
+  
+
+ /* border:1px solid black; */
+}
+:root {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  padding: 0;
+  margin: 0;
+  min-height: 100%;
+  --body-color: #100F2D;
+  --title-color: #FAE29B;
+  --form-background: #464873;
+  --button-color: #201E59;
+  --container-color: #262549;
+  --font-color: #ffffff; 
+  --green-color: #34BF70;
+  --dark-yellow: #F2B705;
+  --light-purple: #C2C4E8;
+  --dark-bg-color:#13122D;
+  --dark-header-bg-color:#C2C4E8;
+  --dark-header-txt-color:#464873;
+  --dark-box-color:#262549;
+  --dark-btn-color:#201E59;
+  --dark-btn-txt-color:#FAE29B;
+  --dark-box-txt-color:#FFFFFF;
+  --dark-box-err-color:lightpink;
+  --dark-nav-bg-color:#C2C4E8;
+  --dark-nav-txt-color:#28245B;
+  --dark-nav-active-bg-color:#34BF70;
+  --dark-nav-notif-msg-bg-color:#34BF70;
+  --dark-footer-bg-color:#464873;
+  --dark-footer-txt-color:#C2C4E8;
+  --dark-card-bg-color:#262549;
+  --dark-card-txt-yellow-color:#FAE29B;
+  --dark-card-txt-white-color:#FAE29B;
+  --dark-card-left-arrow-color:#464873;
+  --dark-card-right-arrow-color:#464873;
+  --dark-card-add-module-modal-bg-color:#464873;
+  --dark-card-scroll-bar-color:#5B5B5E;
+  --dark-card-add-module-course-name-box-bg-color:#FEfbee;
+  --dark-task-details-duedate-txt-color:#FAE29B;
+  --dark-task-details-desc-txt-color:#C2C4E8;
+  --dark-task-details-header-txt-color:#464873;
+  --dark-task-bg-color:#13122D;
+  --dark-task-week-bg-color:#7374CE;
+  --dark-task-complete-task-bg-color:#34BF70;
+  --dark-task-overduetask-bg-color:#F2B705;
+  --dark-task-overduetask-txt-color:#FFFFFF;
+  --dark-task-box-bg-color:#262549;
+  
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin: inherit;
+  min-height: 100vh;
+  background-color: var(--body-color);
+}
+
+.theme {
+  background-color: white;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  margin-top: auto;
+  background-color: var(--dark-footer-bg-color);
+}
+
+footer p {
+  color: var( --dark-footer-txt-color);
+  text-align: center;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* styling for regular links */
+a {
+  color: #00B7FF;
+  text-decoration: none;
+}
+
+/* Regular text styling */
+.text {
+  color: var(--font-color);
+  font-size: 1em;
+  font-weight: 400;
+}
+
+/* Base title test styling */
+.titleText {
+  color: var(--title-color);
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+/* Base form styling */
+form {
+  width: 90vw;
+  color: var(--font-color);
+  margin-left: auto;
+  margin-right: auto;  
+}
+
+/* Base styling for buttons 2 */
+button {
+  border-radius: 0.5rem;
+  border: 0;
+  padding: 0.5rem;
+}
+
+p {
+  margin-top: 0;
+}
+
+.error {
+  font-size: 8em;
+  color: var(--dark-yellow);
+}
+
+#errorMessage {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  margin: 2em auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.info {
+  justify-content: center;
+  color: var(--font-color);
+  font-size: 1.2em;
+  text-align: center;
+}

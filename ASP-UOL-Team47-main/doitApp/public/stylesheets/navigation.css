@@ -1,0 +1,163 @@
+
+/****HEADER*****/
+/**
+Stlesheet defination of navigation bar.
+This style will appear on every pages when navigation bar has been inserted
+This navigation bar is responsive.
+
+*/
+.nav-bar{
+    overflow: hidden;
+    width: 100%;
+  }
+  .nav-bar ul{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    color: var( --dark-header-txt-color);
+    background-color: var(--dark-header-bg-color);
+  }
+  
+  .nav-bar li{
+    list-style-type: none;
+    padding: 1rem;
+  }
+  .nav-bar a{
+    text-decoration: none;
+    padding-bottom: 3px;
+    color: var(--dark-nav-txt-color);
+  }
+
+  .nav-bar a:hover {
+    border-bottom: 2.5px solid var(--dark-yellow);
+  }
+
+  .nav-logo{
+    flex:1;
+    user-select: none;
+  }
+
+  .nav-toggle{
+     display: none;
+  }
+
+  .material-icons {
+    cursor: pointer;
+  }
+
+  /* Logout "button */
+  #logout {
+    background-color: var(--dark-header-txt-color);
+    color: var(--title-color);
+    border-radius: 6px;
+    padding: 6px;
+  }
+
+  /*Navigation option if page is active 
+Set underline as highlighted color*/
+a.active-link {
+  border-bottom: 2.5px solid var(--dark-nav-active-bg-color);
+}
+
+/*Navigation option if page is not active */
+a.disable-active-link {
+  text-decoration: none;
+}
+
+/*Notification icon css class*/
+  .nav-notif {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-bar-button-bell-new-msg {
+    position: relative;
+    top: -10px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    background: var(--dark-nav-notif-msg-bg-color);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+  .nav-bar-button-bell{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+  }
+  /** End of Notification icon css class */
+ 
+  #nav-profile{
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-bar-button-profile{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:  40px;
+    height: 40px;
+    color: var(--dark-nav-bg-color);
+    background: var(--dark-box-color);
+    border: none;
+    outline: none;
+    border-radius: 50%;
+  }
+  
+
+/**
+Logo in header secion
+It is under same unorder list as option
+set at left cornor of window
+if we increase height size of this div class overall header 
+*/
+  .logo{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:  4rem;
+    height: 4rem;  
+    padding-left: 50px;
+  }
+  
+/** 
+Responsive settings:
+Navigation view for mobile display
+*/
+  @media (max-width:599px){
+  
+      .nav-bar ul{
+          flex-wrap: wrap;
+      }
+      .nav-toggle{
+          display: block;
+      }
+      .nav-link{
+          display: none;
+          width: 100%;
+          text-align: center;
+                     
+      }
+
+      #toggle {
+        visibility: hidden;
+      }
+
+      #toggle:checked + {
+        /* visibility: hidden; */
+          display: block;
+      }
+      .active{
+          display: block;
+      }
+  }

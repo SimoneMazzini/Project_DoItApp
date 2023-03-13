@@ -1,0 +1,37 @@
+<%- include('./partials/headMeta.ejs')%>
+  <body class="landing">
+    <!--login header-->
+    <div class="landingHeader">
+      <img src="images/logo.svg" alt="Doit app logo">
+    </div>
+    
+    <main id="loginMain">
+      <section>
+        <h1 class="formTitle">Login</h1>
+        <!--Login form here-->
+        <form action="" method="POST" id="loginForm">
+          <fieldset>
+            <label for="username">Username<span class="asterix">*</span></label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+            <label for="password">Password<span class="asterix">*</span></label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+
+
+            <% if (typeof errMsg === "undefined") { %>
+              <div class="loginErr" id="loginErrMsg"></div>
+            <% } else { %>
+              <div class="loginErr" id="loginErrMsg"> <%= errMsg %> </div>
+            <% } %>
+            
+          </fieldset>
+
+          <button type="submit" class="formButton">Login</button>
+        </form>
+      </section>
+    </main>
+    
+    <%- include('./partials/footer.ejs')%>
+  </body>
+</html>
+
+

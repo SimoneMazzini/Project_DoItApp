@@ -1,0 +1,196 @@
+<%- include('./partials/headMeta.ejs')%>
+  
+  <body class="flex-body"  class="theme">
+      <div class="appContainer">
+        <!--main navigation-->
+        <%- include('./partials/header.ejs')%>
+        
+        <main class="main-container">
+          <div class="flex-main-container" > 
+              <!--top row with progress, points and robots-->
+
+                <section class="flex-container between-justify-content flex-height-40per">
+                  <div class="blank-flex-card-container">
+                    
+                  </div>
+                  <div class="flex-card-container flex-width-90per flex-align-items"> <!--Item Container-->
+                    <div class="all-module-progress flex-width-20per flex-min-width-200px flex-height-70per box-bg-color">
+                          <div class="progress-container">
+                            <!--EJS TEMPLATE DATA FROM Total percentage using by arg 'totalPercentage'-->
+                            <div class="vertical-progress-bar" style="height: <%= totalPercentage %>%;"></div>
+                          </div>
+                          <div class="completion-percentage-all"> <%= totalPercentage %>%
+                          </div>
+                    </div>
+                    <!--#########################
+                        BADGE total point earned
+                        ##########################-->
+                    <div class="flex-card-item-container flex-width-20per flex-min-width-200px flex-height-70per box-bg-color">
+                      <div class="badge-container">
+                            
+                                 <div class="badge-img-container">
+                                  <img src="images/badge.svg" alt="Badge Image and info" >
+                                 </div>
+                                 <!--EARNED points must be filled from DB-->
+                                 <!--EJS DATA insert-->
+                                 <p class="badge-message"><%= totalPoints %> <br> POINTS</p>
+                      </div>
+                    </div>
+                    <!--#########################
+                      EARNED BADGE DETAILS IMAGES
+                        ##########################-->
+                    <div class="flex-card-item-container col-flex-direction flex-width-70per flex-min-width-200px flex-height-70per box-bg-color ">
+                      <div class="flex-container   flex-height-5per flex-width-90per flex-margin-10px box-bg-color flex-min-height-5per">
+                        <p class="robort-message"> Earn points to unlock friendly bots </p>
+                      </div> 
+                      <div class="flex-container   flex-height-80per flex-width-90per flex-wrap flex-margin-10px box-bg-color">
+                            <% for (var i = 0; i < 5; i++) { %>
+                              <% if (i < badgeDetails.length) { %> 
+
+                                <div class="robot-img-container" title="<%= badgeDetails[i].message %>" >
+                                  <img src="/images/<%= badgeDetails[i].picture %>" alt="robort one image">
+                                </div>
+
+                              <% } else { %>
+                                <div class="robot-container"></div>
+                              <% } %>
+
+                            <% } %>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="blank-flex-card-container">
+                     
+                  </div>
+                </section>
+
+              <!--###################
+                   Add Button section
+                  #####################-->
+
+                <section class="flex-container even-justify-content flex-height-10per ">
+                  <div class="blank-flex-card-container">
+                    
+                  </div>
+                      <!-- Actual add button add here-->
+                      <div class="flex-card-container flex-width-90per flex-nowrap flex-overflow-hidden flex-body-bgcolor"> <!--Item container-->
+                          <div class="flex-card-item-container flex-width-20per flex-min-width-200px flex-height-70per  ">
+                             <button id="add-module-btn" class="btn-css flex-width-100per flex-min-width-200px">  
+                              <!--<span class="material-icons"> add_circle </span>       -->               <div>   
+                                  <img style="width:25px;height:25px;" src="images/plus-circle.svg">
+                                  </div>
+                                  <div>ADD MODULE</div>
+                                  
+                              </button>
+                          </div>
+                          <div class="flex-card-item-container flex-width-20per flex-min-width-200px flex-height-70per">
+                          </div>
+                          <div class="flex-card-item-container flex-width-70per flex-min-width-200px flex-height-70per">
+                          </div>
+                      </div>
+                  <div class="blank-flex-card-container">
+                    
+                  </div>
+                </section>
+
+              <!--###################################
+                Bottom row with List of current modules
+                #####################################-->
+
+                <section class="flex-container even-justify-content flex-height-50per">
+                  <!--Left arrow button for scroll control-->
+                  <div class="arrow-btn-flex-card-container">
+                    
+                      <div id="leftArrowBtn" class="arrow-left"></div>
+
+                  </div>
+
+                  
+                  <div id="moduleCardBox" class="flex-card-container-module-list flex-width-90per flex-align-items"> <!--Item container-->
+                    <!--MODULE-(1) CONTAINER-->
+                    <% for (var j = 0; j < coursedata.length; j++) { %>   <!--All assigned module-->
+                      <% if (coursedata[j].taskStatus>=0 ) { %> 
+                        <div class="flex-card-item-container-module">
+                          <a class="flex-card-item-container-module-href" href="task?moduleShortCode=<%= coursedata[j].moduleShortCode %>">
+                            <div class="module-desc"><%= coursedata[j].moduleShortCode %></div>
+                            <div class="module-percentage">
+                                <div class="progress-bar">
+                                  <div class="progress" style="width: <%= coursedata[j].percentageCompleted %>%;"></div>
+                                </div>
+                            </div>
+                          </a>
+                        </div>
+                      <% } %> <!--END If module assigned to user-->
+                    <% } %>  <!--End of for loop All assigned module-->
+
+                  </div>
+                  <!--Right arrow button for scroll control-->
+                  <div class="arrow-btn-flex-card-container">
+                    <div id="rightArrowBtn" class="arrow-right">
+                    </div>
+                  </div>                
+                </section> 
+                <div id="add-module-dialogue-box" class="add-module-dialogue-box-container modal-box-bg-color"> <!--RED-->
+                  <div id="add-module-dialogue-box-items" class="flex-modal-container col-flex-direction add-module-dialogue-box-items"> <!--Orange-->
+                    <div class="flex-modal-item-container container-allmodule-list flex-vertical-scroll-enable flex-width-100per flex-height-70per"> <!-- GREEN must have horizontal scroll bar-->
+                         <!--   EJS TEMPLATE Data to fill list of modules by level or group wise-->
+                         
+                         <% for (var i = 0; i < data.length; i++) { %>
+                         <div class="flex-modal-item-container flex-align-items flex-width-100per flex-min-height-150px "> <!-- LEVEL-5 These are group base dividers must be filled with programitically-->
+                          <div  class="course-level course-level-txt-yellow"><%= data[i] %></div>
+                          <div class="course-level-list row-flex-direction "> 
+                            <% for (var j = 0; j < coursedata.length; j++) { %> 
+                              <% if (coursedata[j].level === data[i] ) { %>  
+                                  <% if (coursedata[j].taskStatus==-1 ) { %>
+                                    <div class="module-name-box flex-align-items module-name-box-task-un-assigned-color" data-item="<%= coursedata[j].moduleCode %>" ><%= coursedata[j].moduleCode %> <br> <%= coursedata[j].moduleShortCode %></div>
+                                  <% } %>
+                                  <% if (coursedata[j].taskStatus>=0 ) { %>
+                                    <div class="module-name-box flex-align-items module-name-box-task-assigned-color" data-item="<%= coursedata[j].moduleCode %>" ><%= coursedata[j].moduleCode %> <br> <%= coursedata[j].moduleShortCode %></div>
+                                  <% } %>
+                              
+                              <% } %>
+                            <% } %>
+                      
+
+                          </div>
+                        </div>
+                         <% if (i < (data.length-1) ) { %>
+                            <br>
+                            <hr>
+                            <br>
+                         <% } %>
+                        <% } %>
+                         <!--END OF TEMPLATE-->
+                         <!--
+                         #Ref to module list template
+
+                         -->
+                         
+                    </div>
+                    <div class="flex-modal-item-container col-flex-direction flex-width-100per flex-height-5per">
+                      <p id="successMsg" class="add-module-status-success "></p>
+                      <p id="errorMsg"  class="add-module-status-err "></p>
+                    </div>
+                    <div class="flex-modal-item-container even-justify-content flex-width-100per flex-height-10per">
+                              <button id="cancelAdd" class="command-button cmd-width-150px cmd-min-width-150px cmd-min-height-70px  cmd-height-70px font-size-1-5rem ">Cancel</button>
+                              <button id="addCourseModule" class="command-button-disabled cmd-width-150px cmd-min-width-150px cmd-min-height-70px  cmd-height-70px font-size-1-5rem ">Add</button>
+                    </div>
+
+                  </div>
+                </div>
+
+          </div>
+        </main>
+        
+        <%- include('./partials/footer.ejs')%>
+      </div>
+    <script  src="/scripts/navigation.js"></script>
+    <script  src="/scripts/dashboard.js"></script>
+    <!--Set active on navigation bar , highlited GREEN-->
+    <script>
+         window.onload = () =>{
+         setActive("home-nav");
+    };
+    </script>
+  </body>
+  </html>

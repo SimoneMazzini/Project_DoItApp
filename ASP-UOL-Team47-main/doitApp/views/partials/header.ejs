@@ -1,0 +1,38 @@
+<header>
+  <!--Navigation bar starts here-->
+  <nav class="nav-bar" >
+     <ul> 
+          <!--Logo area on navigation bar-->
+          <li class="nav-logo">  
+               <a href="/dashboard" class="logo">
+                    <img src="images/logo.svg" alt="Doit app logo" >
+               </a>      
+          </li>
+
+          <!-- Navigation options -->
+          <li class="nav-toggle"><label id=toggleBtn for="toggle">&#9776;</label><input type="checkbox" id= "toggle"/></li>
+          <li class="nav-link"><a id="home-nav" class="active-link" href="/dashboard">DASHBOARD</a></li>
+          <li class="nav-link"><a id="leaderboard-nav" href="/leaderboard">LEADERBOARD</a></li>
+          <li class="nav-link"><a id="about-nav" href="/about">ABOUT</a></li>
+                      
+          <!--Theme toggle button-->
+          <div class="nav-link">
+               <li class="nav-notif">
+                    <span class="material-icons" id="themeToggle" onclick="changeTheme();" title="Toggle theme" > brightness_6 </span>
+               </li>
+          </div>
+
+          <!-- Profile picture with user option-->
+          <div class="nav-link">
+               <li class="nav-notif">
+                    <div >
+                         <a href="userAccount" id="account-nav"><span class="material-icons"  title="Your account details"> person </span></a>
+                    </div>     
+               </li>
+          </div>
+          
+          <!--Logout button, redirect to login page page, for now-->
+          <li class="nav-link"><a href="login" id="logout">LOGOUT</a></li>           
+     </ul>
+  </nav>
+</header>

@@ -1,0 +1,66 @@
+<%- include('./partials/headMeta.ejs')%>
+  <body class="landing">
+    <!--landing/login header-->
+    <div class="landingHeader">
+      <img src="images/logo.svg" alt="Doit app logo">
+        
+      <!--link to login page-->
+      <a href="/login">Login</a>
+    </div>
+  
+    <main id="landingMain">
+      <!--Welcome intro section-->
+      <section id="intro">
+        <h1>Get it done!</h1>
+        <article class="text">
+          <p>
+            Get motivated and keep track of your to-dos for all of your modules in one place. 
+            Get things done and earn points and friendly robots along the way.
+          </p>
+          <p>
+            Kitty Sidekick is here to share some wisdom.
+          </p>
+          <p>
+            Let’s do it!
+          </p>
+        </article>
+
+        <!--Link to about page when user wants to know more about the app before signing up-->
+        <a href="/about">Learn more 
+          <i class = "material-icons arrow">arrow_right</i>
+        </a>  
+      </section>
+
+      <!--Sign-up form section-->
+      <section id="signUpSection">
+        <h2 class="formTitle">Get Started</h2>
+        
+        <form id="signUpForm" action="/signup" method="POST">
+          <fieldset>
+            <label for="email">Email</label>
+            <input id="signUpEmail" type="email" placeholder="Enter email" name="email">
+            <label for="username">Username <span class="asterix">*</span></label>
+            <input id="signUpUserName" type="text" placeholder="Enter Username" name="username" required>
+            <label for="password">Password <span class="asterix">*</span></label>
+            <input id="signUpPassword" type="password" placeholder="Enter Password" name="password" required>
+            <label for="rpassword">Repeat Password <span class="asterix">*</span></label>
+            <input id="signUpRPassword" type="password" placeholder="Repeat Password" name="rpassword" required>
+            <!-- EJS template message , if any error post by user while creating an user-->
+            <% if (typeof errMsg === "undefined") { %>
+              <div class="signUpErr" id="signUpErrMsg"></div>
+            <% } else { %>
+              <div class="signUpErr" id="signUpErrMsg"> <%= errMsg %> </div>
+            <% } %>
+          </fieldset>
+           
+          <button id="signUp" type="submit" class="formButton">Sign Up</button>
+        </form> 
+        
+        
+      </section> 
+    </main>
+    <%- include('./partials/footer.ejs')%>   
+  </body>
+  </html>
+
+

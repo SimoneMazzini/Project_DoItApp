@@ -1,0 +1,98 @@
+
+#user-account {
+  width: 80%;
+  max-width: 800px;
+  margin: 2em auto 2em;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2em;
+}
+
+#profile {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+#profile-img {
+  margin: 1em auto 3em
+}
+
+#account-details {
+  width: 100%;
+  max-width: 400px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  background-color: var(--button-color);
+}
+
+.account-info {
+  width: 80%;
+  margin: auto;
+}
+
+.account-info-title {
+  color: var(--font-color);
+}
+
+.account-info-details {
+  color: var(--button-color);
+  background-color: white;
+  padding: 0.3em;
+
+}
+
+.user-modules {
+  background-color: var(--green-color);
+}
+
+.user-modules > ul {
+  display: flex;
+  flex-direction: row;
+  justify-items:  center;
+  align-items: center;
+  list-style-type: none;
+  padding: 0.3em;
+}
+
+.user-modules  li {
+  padding: 0.3em;
+  color: white;
+}
+
+#archived-modules {
+  background-color: var(--form-background);
+}
+
+#profile > h1 {
+  background-color: var(--button-color);
+  font-weight: 500;
+  padding: 0.3em;
+  font-size: 1.2em;
+}
+
+#delete-account {
+  color: var(--title-color);
+  background-color: var(--button-color);
+  text-transform: uppercase;
+}
+
+@media only screen and (min-width: 600px) {
+  #user-account {
+    width: 80%;
+    max-width: 700px;
+    margin: 2em auto 2em;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #account-details {
+    width: 45%;
+    max-width: 400px;
+    height: 500px;
+  }
+}

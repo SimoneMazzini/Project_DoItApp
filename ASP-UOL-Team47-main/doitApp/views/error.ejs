@@ -1,0 +1,15 @@
+<!--Provide user with options when an error is returned-->
+<%- include('./partials/headMeta.ejs')%>
+<body>
+  <section id="errorMessage">
+    <h1 class="error"><%= error.status %></h1>
+    <div  class="info">
+      <h2><%= message %></h2>
+      <p>Oops! Sorry we couldn't find what you're looking for.</p>
+      <p>Please check out the <span><a href="about">About Page</a></span> for more information.</p>
+      <p> Thank you</p>
+    </div>
+  </section>
+  <%- include('./partials/footer.ejs')%>
+</body>
+</html>
